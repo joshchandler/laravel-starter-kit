@@ -47,4 +47,4 @@ RUN useradd -d /code/app -u 1000 www && \
         /var/log/nginx \
         /code/app
 
-CMD ["../startup.sh"]
+CMD service php5-fpm start && nginx

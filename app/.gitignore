@@ -6,3 +6,6 @@
 .env
 .sass-cache
 !.gitkeep
+
+*.lock
+*.log

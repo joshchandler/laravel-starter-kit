@@ -3,7 +3,7 @@
 		<title>Laravel</title>
 
 		<link href='//fonts.googleapis.com/css?family=Raleway:400,100,300' rel='stylesheet' type='text/css'>
-		<link href='{{ elixir("css/main.css") }}' rel='stylesheet' type='text/css'>
+{{--		<link href='{{ elixir("css/main.css") }}' rel='stylesheet' type='text/css'>--}}
 	</head>
 	<body>
 		<div class="container">
@@ -13,6 +13,6 @@
 			</div>
 		</div>
 
-		<script src='{{ elixir("js/bundle.js") }}'></script>
+		{{--<script src='{{ elixir("js/bundle.js") }}'></script>--}}
 	</body>
 </html>
