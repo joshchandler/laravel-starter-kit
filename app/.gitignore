@@ -1,11 +1,9 @@
 /vendor
 /node_modules
-/public/build
-/public/css
-/public/js
+/public/storage
+Homestead.yaml
+Homestead.json
 .env
-.sass-cache
-!.gitkeep
 
-*.lock
-*.log
+composer.lock
+npm-debug.log
