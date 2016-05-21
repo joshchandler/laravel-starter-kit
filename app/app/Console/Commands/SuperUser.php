@@ -3,11 +3,9 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Foundation\Inspiring;
-use App\Exceptions\PasswordMismatchException;
 
+use App\Exceptions\PasswordMismatchException;
 use App\User;
-use App\Role;
 
 class SuperUser extends Command
 {

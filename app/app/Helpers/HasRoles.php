@@ -1,9 +1,10 @@
-<?php namespace App\Helpers;
+<?php 
 
+namespace App\Helpers;
+
+use App\Exceptions\PrimaryRoleMissingException;
 use App\Role;
 use App\Permission;
-
-class PrimaryRoleMissingException extends \Exception {}
 
 trait HasRoles
 {
