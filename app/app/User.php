@@ -1,11 +1,14 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Helpers\HasAttributes;
+use App\Helpers\HasRoles;
+
 class User extends Authenticatable
 {
+    use HasAttributes, HasRoles;
+
     /**
      * The attributes that are mass assignable.
      *
