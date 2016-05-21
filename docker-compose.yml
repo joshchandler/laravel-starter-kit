@@ -1,7 +1,6 @@
 version: '2'
 services:
   web:
-    restart: always
     build: .
     volumes:
       - .:/code
@@ -18,18 +17,21 @@ services:
 
   beanstalkd:
     image: chriskite/beanstalkd
+    restart: always
     ports:
       - "11300:11300"
 
   mysql:
     build: mysql
+    restart: always
     volumes:
-      - ./mysql/data:/var/lib/data
+      - ./mysql/data:/var/lib/mysql
     ports:
       - "3306:3306"
     env_file: ./app/.env
 
   redis:
     image: redis:2.8
+    restart: always
     ports:
       - "6379:6379"

@@ -5,8 +5,9 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "starter-kit/user-suite": "dev-master",
+        "laravel/framework": "5.2.*",
+        "php": ">=5.5.9"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -15,6 +16,16 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../packages/user-suite",
+            "packagist": false,
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "autoload": {
         "classmap": [
             "database"
