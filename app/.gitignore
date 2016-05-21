@@ -7,5 +7,6 @@ Homestead.json
 
 composer.lock
 npm-debug.log
+_ide_helper.php
 
 phpinfo.php

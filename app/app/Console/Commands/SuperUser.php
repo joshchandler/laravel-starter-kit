@@ -46,8 +46,8 @@ class SuperUser extends Command
             throw new PasswordMismatchException("Passwords don't match.");
         }
 
-        $user->password = $password;
-
+        $user->password = \Hash::make($password);
+    
         $user->save();
         $user->assignRole('admin', true);
 
