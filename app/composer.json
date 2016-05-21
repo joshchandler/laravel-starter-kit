@@ -7,7 +7,8 @@
     "require": {
         "laravel/framework": "5.2.*",
         "pda/pheanstalk": "3.1.*",
-        "php": ">=5.5.9"
+        "php": ">=5.5.9",
+        "predis/predis": "1.0.*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.1",
