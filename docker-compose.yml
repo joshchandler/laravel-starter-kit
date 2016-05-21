@@ -9,11 +9,10 @@ services:
       - "80:80"
     links:
       - beanstalkd
-      - postgres
+      - mysql
       - redis
     environment:
       - LARAVEL_ENV=local
-      - POSTGRESQL_HOST=postgres
       - REDIS_HOST=redis
       - BEANSTALKD_HOST=beanstalkd
 
@@ -22,10 +21,12 @@ services:
     ports:
       - "11300:11300"
 
-  postgres:
-    image: jcalazan/postgresql
+  mysql:
+    build: mysql
+    volumes:
+      - ./mysql/data:/var/lib/data
     ports:
-      - "5432:5432"
+      - "3306:3306"
     env_file: ./app/.env
 
   redis:

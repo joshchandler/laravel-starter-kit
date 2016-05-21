@@ -3,7 +3,7 @@ FROM ubuntu:15.04
 RUN apt-get update
 RUN apt-get install -y software-properties-common
 RUN apt-get install -y nginx curl nodejs npm ruby libnotify-bin
-RUN apt-get install -y php5-fpm php5-mcrypt php5-pgsql
+RUN apt-get install -y php5-fpm php5-mcrypt php5-mysql
 
 # Configure Nginx
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
