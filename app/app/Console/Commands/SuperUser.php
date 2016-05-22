@@ -14,7 +14,8 @@ class SuperUser extends Command
      *
      * @var string
      */
-    protected $signature = 'admin:superuser';
+    protected $signature = 'admin:superuser 
+                            {--user= : The user to make an admin}';
 
     /**
      * The console command description.
@@ -31,26 +32,33 @@ class SuperUser extends Command
      */
     public function handle()
     {
-        $user = new User();
-        
-        $name = $this->ask("Name");
-        $user->name = $name;
+        if ($this->option('user') != null) {
+            $user = User::find($this->option('user'));
+            $user->assignRole('admin', true);
+            $this->info("User " . $user->name . " has been assigned the admin role!");
+        } else {
+            $user = new User();
 
-        $email = $this->ask("Email Address");
-        $user->email = $email;
+            $name = $this->ask("Name");
+            $user->name = $name;
 
-        $password = $this->secret("Password");
-        $password_again = $this->secret("Password (again)");
+            $email = $this->ask("Email Address");
+            $user->email = $email;
 
-        if ($password !== $password_again) {
-            throw new PasswordMismatchException("Passwords don't match.");
+            $password = $this->secret("Password");
+            $password_again = $this->secret("Password (again)");
+
+            if ($password !== $password_again) {
+                throw new PasswordMismatchException("Passwords don't match.");
+            }
+
+            $user->password = \Hash::make($password);
+
+            $user->save();
+            $user->assignRole('admin', true);
+
+            $this->info("Admin user " . $user->name . " has been created!");
+            return true;
         }
-
-        $user->password = \Hash::make($password);
-    
-        $user->save();
-        $user->assignRole('admin', true);
-
-        $this->info("Admin user " . $user->name . " has been created!");
     }
 }
