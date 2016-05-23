@@ -33,9 +33,11 @@ class SuperUser extends Command
     public function handle()
     {
         if ($this->option('user') != null) {
+
             $user = User::find($this->option('user'));
             $user->assignRole('admin', true);
             $this->info("User " . $user->name . " has been assigned the admin role!");
+
         } else {
             $user = new User();
 
@@ -58,7 +60,6 @@ class SuperUser extends Command
             $user->assignRole('admin', true);
 
             $this->info("Admin user " . $user->name . " has been created!");
-            return true;
         }
     }
 }
