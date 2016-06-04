@@ -31,7 +31,7 @@ trait HasRoles
         $existing_role = $this->roles()->whereName($role)->first();
         
         if ($existing_role != false) {
-            if ($is_primary && !$existing_role->pivot->is_primary) {
+            if ($is_primary && ! $existing_role->pivot->is_primary) {
                 return $this->makeRolePrimary($role);
             } elseif ($is_primary && $existing_role->pivot->is_primary) {
                 throw new \Exception("The " . $role . " role is already assigned and the primary role.");
